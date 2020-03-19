@@ -1,0 +1,4 @@
+int arr[100];
+cout << arr[0];
+
+Ans. Garbage Value
