@@ -1,0 +1,39 @@
+Fibonacci Number
+
+Given a number N, figure out if it is a member of fibonacci series or not. Return true if the number is member of fibonacci series else false.
+Fibonacci Series is defined by the recurrence
+    F(n) = F(n-1) + F(n-2)
+
+Input Format :
+Integer N
+Output Format :
+true or false
+
+Sample Input 1 :
+5
+Sample Output 1 :
+true
+
+Sample Input 2 :
+14
+Sample Output 2 :
+false    
+
+Solution:
+
+int fib(int i)
+{
+    if(i == 0 || i == 1)
+        return i;
+    else 
+        return (fib(i - 1) + fib(i - 2));
+}
+
+bool checkMember(int n)
+{   
+    int check_num = 36;
+    for(int i = 1; i <= check_num; i++)
+        if(n == fib(i))
+            return true;
+    return false;
+}
