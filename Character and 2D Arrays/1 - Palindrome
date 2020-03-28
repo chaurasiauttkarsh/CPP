@@ -1,0 +1,33 @@
+Given a String s, check it its palindrome. Return true if string is palindrome, else return false.
+Palindrome strings are those, where string s and its reverse is exactly same.
+Input Format :
+ String S
+Output Format :
+"true" if S is palindrome, else "false"
+Sample Input 1 :
+abcdcba
+Sample Output 1 :
+true 
+
+Solution:
+
+
+int length(char arr[])
+{
+    int count = 0;
+    for(int i = 0; arr[i] !=NULL; i++)
+        count ++;
+    return count;
+}
+
+
+bool checkPalindrome(char str[])
+{
+    int len = length(str);
+    for(int i=0; i < len/2; i++)
+    {
+        if(str[i] != str[len - i - 1])
+            return false;
+    }
+    return true;
+}
