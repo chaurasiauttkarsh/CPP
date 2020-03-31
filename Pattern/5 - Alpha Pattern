@@ -1,0 +1,41 @@
+Print the following pattern for the given N number of rows.
+Pattern for N = 3
+ A
+ BB
+ CCC
+Input format :
+Integer N (Total no. of rows)
+Output format :
+Pattern in N lines
+Sample Input :
+7
+Sample Output :
+A
+BB
+CCC
+DDDD
+EEEEE
+FFFFFF
+GGGGGGG
+
+Solution:
+#include<iostream>
+using namespace std;
+
+
+int main()
+{
+    int num;
+    cin >> num;
+    int value = 'A';
+    for(int i = 0; i < num; i++)
+    {
+        for(int j = 0; j <= i; j ++)
+        {
+            char myval = value + i;
+            cout << myval;
+        }
+        cout << endl;
+    }
+    return 0;
+}
