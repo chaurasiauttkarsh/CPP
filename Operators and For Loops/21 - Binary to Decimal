@@ -1,0 +1,48 @@
+Given a binary number as an integer N, convert it into decimal and print.
+Input format :
+An integer N
+Output format :
+Corresponding Decimal number (as integer)
+Sample Input 1 :
+1100
+Sample Output 1 :
+12
+Sample Input 2 :
+111
+Sample Output 2 :
+7
+
+Solution:
+#include<iostream>
+
+using namespace std;
+
+int pow(int j)
+{
+    int val = 1;
+    for(int i = 0; i < j; i++)
+    {
+        val = val * 2;
+    }
+    return val;
+}
+
+void dec(int n)
+{
+    int num = 0, i = 0;
+    while(n != 0)
+    {
+        num = num + (n%10) * pow(i);
+        n = n/10;
+        i++;
+    }
+    cout << num;
+}
+
+int main() 
+{
+    int N;
+    cin >> N;
+    dec(N);
+    return 0;
+}
