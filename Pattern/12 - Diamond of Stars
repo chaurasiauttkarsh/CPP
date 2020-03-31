@@ -1,0 +1,43 @@
+Code : Diamond of stars
+Send Feedback
+Print the following pattern for the given number of rows.
+Assume, N is always odd.
+Pattern for N = 7
+   *
+  ***
+ *****
+*******
+ *****
+  ***
+   *
+Input format :
+N (Total no. of rows and can only be odd)
+Output format :
+Pattern in N lines
+Sample Input :
+5
+Sample Output :
+  *
+ ***
+*****
+ ***
+  *
+  
+Solution:
+void printPatt(int n)
+{
+    int num = 0;
+    for(int i = 0; i < n; i++)
+    {
+        if(i < n/2 + 1)
+            num++;
+        else 
+            num--;
+
+        for(int k = 0; k < n/2 + 1 - num; k++)
+            cout << " ";
+        for(int k = 0; k < 2 * num - 1; k++)
+            cout << "*";
+        cout << endl;
+    }
+}
