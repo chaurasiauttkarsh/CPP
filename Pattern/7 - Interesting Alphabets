@@ -1,0 +1,38 @@
+Print the following pattern for the given number of rows.
+Pattern for N = 5
+E
+DE
+CDE
+BCDE
+ABCDE
+Input format : N (Total no. of rows)
+
+Output format : Pattern in N lines
+
+Sample Input :
+8
+Sample Output :
+H
+GH
+FGH
+EFGH
+DEFGH
+CDEFGH
+BCDEFGH
+ABCDEFGH
+
+Solution:
+void printPatt(int n)
+{
+    int num = n;
+    int value = 'A' + n - 1;
+    for(int i = 0; i < num; i++)
+    {
+        for(int j = 0; j <= i; j ++)
+        {
+            char myval = value - i + j;
+            cout << myval;
+        }
+        cout << endl;
+    }
+}
