@@ -1,0 +1,63 @@
+Given an NxM 2D array, you need to find out which row or column has largest sum (sum of its elements) overall amongst all rows and columns.
+Input Format :
+ Line 1 : 2 integers N and M respectively, separated by space 
+ Line 2: Single line having N*M elements entered in row wise manner, each separated by space.
+Output Format :
+ If row sum is maximum then - "row" row_num max_sum
+ If column sum is maximum then - "column" col_num max_sum
+Note : If there are more than one rows/columns with maximum sum consider the row/column that comes first. And if ith row and jth column has same sum (which is largest), consider the ith row as answer.
+Sample Input 1 :
+2 2 
+1 1 1 1
+Sample Output 1 :
+row 0 2
+Sample Input 2 :
+3 3
+3 6 9 1 4 7 2 8 9
+Sample Output 2 :
+column 2 25
+
+Solution:
+using namespace std;
+void findLargest(int arr[][1000], int row, int col)
+{
+    int max_row_val = -2147483647;
+    int max_col_val = -2147483647;
+    int max_row = 0;
+    int max_col = 0;
+    int sum = 0;
+    for(int i = 0; i < row; i++)
+    {
+        for(int k = 0; k < col; k++)
+        {
+            sum = sum + arr[i][k];
+        }
+        if(sum > max_row_val)
+        {
+            max_row_val = sum;
+            max_row = i;
+        }
+        sum = 0;
+    }
+    for(int i = 0; i < col; i++)
+    {
+        for(int k = 0; k < row; k++)
+        {
+            sum = sum + arr[k][i];
+        }
+        if(sum > max_col_val)
+        {
+            max_col_val = sum;
+            max_col = i;
+        }
+        sum = 0;
+    }
+    if(max_row_val >= max_col_val)
+    {
+        cout << "row" << " "<< max_row << " " << max_row_val;
+    }
+    else
+    {
+        cout << "column" << " " <<max_col << " " << max_col_val;
+    }
+}
