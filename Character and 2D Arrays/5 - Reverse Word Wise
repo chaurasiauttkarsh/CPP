@@ -1,0 +1,38 @@
+Reverse the given string word wise. That is, the last word in given string should come at 1st place, last second word at 2nd place and so on. Individual words should remain as it is.
+Sample Input:
+Welcome to Coding Ninjas
+Sample Output:
+Ninjas Coding to Welcome
+
+Solution:
+// input - given string
+// You need to update in the given string itself. No need to print or return anything
+#include<cstring>
+
+void swap(char *a, char *b)
+{
+    char temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void reverseStringWordWise(char input[]) 
+{
+    int len = strlen(input);
+    for(int i = 0; i < len / 2; i++)
+        swap(&input[i], &input[len - 1 - i]);
+    int initial = 0, last = 0;
+    for(int i = 0; input[i] != '\0'; i++)
+    {
+        if(input[i] == ' ')
+        {
+            last = i - 1;
+            for(int j = initial; j <=(last + initial)/2; j++)
+                swap(&input[j], &input[last - j + initial]);
+            initial = i + 1;
+        }
+    }
+    last = len - 1;
+    for(int i = initial; i <=(last + initial)/2; i++)
+        swap(&input[i], &input[last - i + initial]);
+}
