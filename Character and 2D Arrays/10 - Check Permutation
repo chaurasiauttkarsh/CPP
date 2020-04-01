@@ -1,0 +1,53 @@
+Given two strings, check if they are permutations of each other. Return true or false.
+Permutation means - length of both the strings should same and should contain same set of characters. Order of characters doesn't matter.
+Note : Input strings contain only lowercase english alphabets.
+Input format :
+Line 1 : String 1
+Line 2 : String 2
+Sample Input 1 :
+abcde
+baedc
+Sample Output 1 :
+true
+Sample Input 2 :
+abc
+cbd
+Sample Output 2 :
+false
+
+Solution:
+
+// input1 - first input string
+// input2 - second input string
+#include <cstring>
+using namespace std;
+void swap(char *a, char *b)
+{
+    char temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+bool isPermutation(char input1[], char input2[]) 
+{
+    int len1 = strlen(input1);
+    int len2 = strlen(input2);
+    if(len1 != len2)
+        return false;
+    else
+    {
+        for(int i = 0; i < len1 - 1; i++)
+            for(int j = 0; j < len1 - 1 - i; j++)
+                if(int(input1[j]) > int(input1[j + 1]))
+                    swap(&input1[j], &input1[j + 1]);
+        for(int i = 0; i < len2 - 1; i++)
+            for(int j = 0; j < len2 - 1 - i; j++)
+                if(int(input2[j]) > int(input2[j + 1]))
+                    swap(&input2[j], &input2[j + 1]);
+        int val = strcmp(input1, input2);
+        if(val == 0)
+            return true;
+        else 
+            return false;
+    }
+}
